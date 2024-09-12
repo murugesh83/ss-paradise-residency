@@ -162,33 +162,50 @@ nav {
 }
 
 .btn-cta {
-    background-color: #ff6b6b;
-    color: #fff;
-    padding: 15px;
+    display: inline-block;
+    padding: 14px 28px; /* Comfortable padding for a bold appearance */
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333333; /* Dark gray text for a clean and readable look */
+    background-color: #FFC107; /* Warm, modern amber/gold color */
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
+    border-radius: 30px; /* Rounded corners for a contemporary style */
+    transition: all 0.3s ease; /* Smooth transitions for interactive effects */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Light shadow for subtle elevation */
 }
 
 .btn-cta:hover {
-    background-color: #ff4757;
-    transform: translateY(-2px);
+    background-color: #d1c6c3; /* Bright orange for a vibrant hover effect */
+    color: #FFFFFF; /* White text on hover for contrast and readability */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow to emphasize the hover state */
 }
+
+.btn-cta:active {
+    transform: translateY(0); /* No lift effect on active state */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on click */
+    background-color: #50352c; /* Darker, warm red-orange for the active state */
+}
+
+
 
 
 /* Hero section styling */
 .hero {
-    background-image: url('/api/placeholder/1200/600');
+    background-image: url('image/room_luxurious1.webp');
     background-size: cover;
     background-position: center;
-    color: #fff;
-    padding: 150px 0;
+    color: #ffffff;
+    padding: 150px 20px; /* Added padding on the sides for better responsiveness */
     margin-top: 80px;
     text-align: center;
     position: relative;
+    display: flex; /* Center content vertically */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden; /* To keep content within bounds */
 }
 
 .hero::before {
@@ -198,23 +215,36 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Diagonal gradient for a dynamic effect */
+    z-index: 0; /* Ensure it's behind the content */
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ensure content is above the overlay */
+    max-width: 1200px; /* Limit width for better readability */
+    padding: 20px; /* Add padding for spacing */
+    background: rgba(0, 0, 0, 0.3); /* Subtle background to enhance text contrast */
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 50px; /* Slightly larger font for impact */
     margin-bottom: 20px;
+    line-height: 1.2; /* Improved line height for readability */
+    color: #FFC107; /* Gold color for a luxurious feel */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Text shadow for better legibility */
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px; /* Slightly larger font for better readability */
     margin-bottom: 30px;
+    line-height: 1.5; /* Comfortable line spacing */
+    color: #e0e0e0; /* Light gray for better contrast against the background */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
 }
+
 
 /* Section styling */
 section {
