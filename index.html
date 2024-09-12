@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">SS Paradise Residency</a>
+                <ul class="nav-links">
+                    <li><a href="#rooms">Our Rooms</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#location">Contact</a></li>
+                    <li><a href="#booking-section" class="btn  btn-cta">Book Room</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Experience Our Luxurious Rooms in Tiruvannamalai</h1>
+                    <p>SS Paradise Residency, a newly established residency offering luxurious A/C rooms, is located in Tiruvannamalai, India. This accommodation provides a unique hospitality experience, combining comfort with the spiritual ambiance of the area. Situated in the heart of a spiritual and cultural center, SS Paradise Residency is conveniently located just 0.8 km from the renowned Arunachaleswarar Shiva Temple and a mere 300 feet from the serene Ramana Ashram. Guests can enjoy a comfortable stay while exploring the rich spiritual heritage of Tiruvannamalai.</p>
+                </div>
+                <div class="room-gallery">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Spacious Deluxe Room">
+                        <p>Spacious Deluxe Room</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Elegant Suite">
+                        <p>Elegant Suite</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Modern Bathroom">
+                        <p>Modern Bathroom</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Cozy Twin Room">
+                        <p>Cozy Twin Room</p>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://youtube.com/shorts/M9sILOJBf2M?feature=share" title="SS Paradise Residency Room Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        
+        </section>
+
+        <section id="booking-section" class="booking-section">
+            <div class="container">
+                <h1>Book Your Stay</h1>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-in">Check-in Date</label>
+                        <input type="date" id="check-in" name="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out Date</label>
+                        <input type="date" id="check-out" name="check-out" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Room Type</label>
+                        <select id="room-type" name="room-type" required>
+                            <option value="">Select a room type</option>
+                            <option value="deluxe">Deluxe Room</option>
+                            <option value="suite">Suite</option>
+                            <option value="twin">Twin Room</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" name="guests" min="1" max="4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-cta">Book Now</button>
+                </form>
+            </div>
+        </section>
+        
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose SS Paradise Residency</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 11-16 0 8 8 0 0116 0z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <h3>Prime Location</h3>
+                        <p>Just 0.8 km from Arunachaleswarar Shiva Temple and 300 feet from Ramana Ashram</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <h3>Unique Experience</h3>
+                        <p>Combine comfort with the spiritual ambiance of Tiruvannamalai</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <h3>Luxurious Rooms</h3>
+                        <p>Enjoy our comfortable A/C rooms designed for relaxation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="location">
+            <div class="container">
+                <h2>Our Location</h2>
+                <div class="location-content">
+                    <div class="location-text">
+                        <p>SS Paradise Residency is conveniently located in the heart of Tiruvannamalai, providing easy access to spiritual landmarks and local attractions.</p>
+                        <p>Address: No. 1/1, 2nd Street, VOC Nagar, Tiruvannamalai, Tamil Nadu 606603, India</p>
+                        <p>Phone: 9629991270</p>
+                    </div>
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.2785084755463!2d79.06074611346458!3d12.224987949451197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDEzJzI5LjkiTiA3OcKwMDMnNDAuMSJF!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>Contact us: 9629991270 | info@ssparadiseresidency.com</p>
+            <p>&copy; 2023 SS Paradise Residency. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
