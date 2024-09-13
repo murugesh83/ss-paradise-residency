@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        #message {
+            display: none;
+            margin: 20px;
+            font-weight: bold;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid aquamarine;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,11 +24,11 @@
             <nav>
                 <a href="#" class="logo">SS Paradise Residency</a>
                 <ul class="nav-links">
-                    <li><a href="#rooms" class="btn  btn-cta">Our Rooms</a></li>
-                    <li><a href="#features" class="btn  btn-cta">Features</a></li>
+                    <li><a href="#rooms" class="btn btn-cta">Our Rooms</a></li>
+                    <li><a href="#features" class="btn btn-cta">Features</a></li>
                     <li><a href="#location" class="btn btn-cta">Location</a></li>
-                    <li><a href="#location" class="btn  btn-cta">Contact</a></li>
-                    <li><a href="#booking-section" class="btn  btn-cta">Book Room</a></li>
+                    <li><a href="#contact" class="btn btn-cta">Contact</a></li>
+                    <li><a href="#booking-section" class="btn btn-cta">Book Room</a></li>
                 </ul>
             </nav>
         </div>
@@ -56,36 +68,35 @@
                     </iframe>
                 </div>
             </div>
-        
         </section>
 
         <section id="booking-section" class="booking-section">
             <div class="container">
                 <h1>Book Your Stay</h1>
-                <form class="booking-form" action="send_email.php" method="POST">
+                <form id="booking-form" class="booking-form">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name2</label>
+                        <input type="text" id="name" name="Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="Phone" required>
                     </div>
                     <div class="form-group">
                         <label for="check-in">Check-in Date</label>
-                        <input type="date" id="check-in" name="check-in" required>
+                        <input type="date" id="check-in" name="Check-in" required>
                     </div>
                     <div class="form-group">
                         <label for="check-out">Check-out Date</label>
-                        <input type="date" id="check-out" name="check-out" required>
+                        <input type="date" id="check-out" name="Check-out" required>
                     </div>
                     <div class="form-group">
                         <label for="room-type">Room Type</label>
-                        <select id="room-type" name="room-type" required>
+                        <select id="room-type" name="Room-type" required>
                             <option value="">Select a room type</option>
                             <option value="deluxe">Deluxe Room</option>
                             <option value="suite">Suite</option>
@@ -94,17 +105,17 @@
                     </div>
                     <div class="form-group">
                         <label for="guests">Number of Guests</label>
-                        <input type="number" id="guests" name="guests" min="1" max="4" required>
+                        <input type="number" id="guests" name="Guests" min="1" max="4" required>
                     </div>
                     <div class="form-group">
                         <label for="special-requests">Special Requests</label>
-                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                        <textarea id="special-requests" name="Special-requests" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-cta">Book Now</button>
+                    <button type="submit" class="btn btn-cta" id="submit-button">Book Now</button>
                 </form>
+                <div id="message"></div>
             </div>
         </section>
-        
 
         <section id="location" class="location">
             <div class="container">
@@ -129,5 +140,65 @@
             <p>&copy; 2023 SS Paradise Residency. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+       document.getElementById("booking-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the default form submission
+    document.getElementById("message").textContent = "Submitting...";
+    document.getElementById("message").style.display = "block";
+    document.getElementById("submit-button").disabled = true;
+
+    // Collect the form data
+    var formData = new FormData(this);
+    var keyValuePairs = [];
+    for (var pair of formData.entries()) {
+        keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+    }
+
+    var formDataString = keyValuePairs.join("&");
+
+    // Send a POST request to your Google Apps Script
+    fetch("https://script.google.com/macros/s/AKfycbwc4MBM5ASLIcMhGsJHl68PrqVbWSWYv_eI8ciqjt9oRodw2IY6oIxXZHWwYHzmrSEQ/exec", { // Replace with your actual Google Apps Script URL
+        redirect: "follow",
+        method: "POST",
+        body: formDataString,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+    })
+    .then(function (response) {
+        // Check if response status is OK (200)
+        if (!response.ok) {
+            throw new Error("Network response was not OK");
+        }
+        // Try to parse response as JSON; adjust as necessary for your script's response format
+        return response.json(); // Ensure your script returns valid JSON if expecting a JSON response
+    })
+    .then(function (data) {
+        // Display a success message
+        document.getElementById("message").textContent = "Data submitted successfully!";
+        document.getElementById("message").style.backgroundColor = "green";
+        document.getElementById("message").style.color = "beige";
+        document.getElementById("submit-button").disabled = false;
+        document.getElementById("booking-form").reset();
+
+        // Hide the message after a delay
+        setTimeout(function () {
+            document.getElementById("message").textContent = "";
+            document.getElementById("message").style.display = "none";
+        }, 2600);
+    })
+    .catch(function (error) {
+        // Handle errors and display error message
+        console.error("Error:", error);
+        document.getElementById("message").textContent = "An error occurred while submitting the form.";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("message").style.backgroundColor = "red";
+        document.getElementById("message").style.color = "white";
+        document.getElementById("submit-button").disabled = false;
+    });
+});
+
+    </script>
 </body>
 </html>
