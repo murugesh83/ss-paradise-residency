@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <!-- intl-tel-input CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
     <style>
         #message {
             display: none;
@@ -15,6 +17,20 @@
             border-radius: 4px;
             border: 1px solid aquamarine;
             text-align: center;
+        }
+
+        /* Initially hide validation styles */
+        .was-validated :invalid {
+            border-color: red;
+        }
+
+        .was-validated :invalid:focus {
+            outline: none;
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        .was-validated :valid {
+            border-color: green;
         }
     </style>
 </head>
@@ -73,9 +89,9 @@
         <section id="booking-section" class="booking-section">
             <div class="container">
                 <h1>Book Your Stay</h1>
-                <form id="booking-form" class="booking-form">
+                <form id="booking-form" class="booking-form" novalidate>
                     <div class="form-group">
-                        <label for="name">Full Name2</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="Name" required>
                     </div>
                     <div class="form-group">
@@ -84,8 +100,8 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="Phone" required>
-                    </div>
+                        <input type="tel" id="phone" name="Phone" placeholder="123-456-7890" required maxlength="12">
+                    </div>                    
                     <div class="form-group">
                         <label for="check-in">Check-in Date</label>
                         <input type="date" id="check-in" name="Check-in" required>
@@ -109,7 +125,7 @@
                     </div>
                     <div class="form-group">
                         <label for="special-requests">Special Requests</label>
-                        <textarea id="special-requests" name="Special-requests" rows="4"></textarea>
+                        <textarea id="special-requests" name="Special-requests" rows="4" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-cta" id="submit-button">Book Now</button>
                 </form>
@@ -141,64 +157,121 @@
         </div>
     </footer>
 
-    <script>
-       document.getElementById("booking-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent the default form submission
-    document.getElementById("message").textContent = "Submitting...";
-    document.getElementById("message").style.display = "block";
-    document.getElementById("submit-button").disabled = true;
+   <!-- Include intl-tel-input CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
-    // Collect the form data
-    var formData = new FormData(this);
-    var keyValuePairs = [];
-    for (var pair of formData.entries()) {
-        keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+<script>
+
+    // Function to format phone number input as XXX-XXX-XXXX
+    function formatPhoneNumber(input) {
+        // Remove all non-digit characters
+        const cleaned = ('' + input.value).replace(/\D/g, '');
+
+        // Split the numbers into their parts
+        const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+
+        // Build the formatted number if the match exists
+        if (match) {
+            input.value = !match[2] ? match[1] : `${match[1]}-${match[2]}${match[3] ? '-' + match[3] : ''}`;
+        }
     }
 
-    var formDataString = keyValuePairs.join("&");
-
-    // Send a POST request to your Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbwc4MBM5ASLIcMhGsJHl68PrqVbWSWYv_eI8ciqjt9oRodw2IY6oIxXZHWwYHzmrSEQ/exec", { // Replace with your actual Google Apps Script URL
-        redirect: "follow",
-        method: "POST",
-        body: formDataString,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        },
-    })
-    .then(function (response) {
-        // Check if response status is OK (200)
-        if (!response.ok) {
-            throw new Error("Network response was not OK");
-        }
-        // Try to parse response as JSON; adjust as necessary for your script's response format
-        return response.json(); // Ensure your script returns valid JSON if expecting a JSON response
-    })
-    .then(function (data) {
-        // Display a success message
-        document.getElementById("message").textContent = "Data submitted successfully!";
-        document.getElementById("message").style.backgroundColor = "green";
-        document.getElementById("message").style.color = "beige";
-        document.getElementById("submit-button").disabled = false;
-        document.getElementById("booking-form").reset();
-
-        // Hide the message after a delay
-        setTimeout(function () {
-            document.getElementById("message").textContent = "";
-            document.getElementById("message").style.display = "none";
-        }, 2600);
-    })
-    .catch(function (error) {
-        // Handle errors and display error message
-        console.error("Error:", error);
-        document.getElementById("message").textContent = "An error occurred while submitting the form.";
-        document.getElementById("message").style.display = "block";
-        document.getElementById("message").style.backgroundColor = "red";
-        document.getElementById("message").style.color = "white";
-        document.getElementById("submit-button").disabled = false;
+    // Attach the event listener to format the input on every keyup event
+    document.getElementById('phone').addEventListener('input', function () {
+        formatPhoneNumber(this);
     });
-});
+    
+    // Initialize intl-tel-input on the phone input field
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["us", "gb", "in"], // Customize preferred countries
+        separateDialCode: true,
+        formatOnDisplay: true, // Format the number with hyphens as per country standard
+        nationalMode: false, // Allows the full number including country code
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // Utility script for formatting/validation etc.
+    });
 
-    </script>
+    document.getElementById("booking-form").addEventListener("submit", function (e) {
+        // Add the 'was-validated' class to trigger validation styles
+        this.classList.add('was-validated');
+
+        // Check if the form is valid
+        if (!this.checkValidity() || !phoneInput.isValidNumber()) {
+            e.preventDefault(); // Prevent the form from submitting if it is invalid
+            this.reportValidity(); // Show validation messages for invalid fields
+            if (!phoneInput.isValidNumber()) {
+                alert("Please enter a valid phone number."); // Show a specific alert for invalid phone numbers
+            }
+            return;
+        }
+
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting...";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        const fullPhoneNumber = phoneInput.getNumber(); // Get the full international number including the country code
+        formData.set("Phone", fullPhoneNumber); // Set the full phone number with country code
+
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+            keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch("https://script.google.com/macros/s/AKfycbwc4MBM5ASLIcMhGsJHl68PrqVbWSWYv_eI8ciqjt9oRodw2IY6oIxXZHWwYHzmrSEQ/exec", { // Replace with your actual Google Apps Script URL
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+        })
+        .then(function (response) {
+            // Check if response status is OK (200)
+            if (!response.ok) {
+                throw new Error("Network response was not OK");
+            }
+            // Try to parse response as JSON; adjust as necessary for your script's response format
+            return response.json(); // Ensure your script returns valid JSON if expecting a JSON response
+        })
+        .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent = "Data submitted successfully!";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("booking-form").reset();
+            // Remove the validation class after successful submission
+            document.getElementById("booking-form").classList.remove('was-validated');
+        })
+        .catch(function (error) {
+            // Handle errors and display error message
+            console.error("Error:", error);
+            document.getElementById("message").textContent = "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "red";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("submit-button").disabled = false;
+        });
+    });
+
+    // Add event listeners to input fields to trigger validation feedback on blur (focus out)
+    document.querySelectorAll('#booking-form input, #booking-form select, #booking-form textarea').forEach(function(input) {
+        input.addEventListener('blur', function() {
+            // Only show validation messages after attempting submission
+            if (document.getElementById("booking-form").classList.contains('was-validated')) {
+                this.reportValidity();
+            }
+        });
+    });
+</script>
+
+
 </body>
 </html>
