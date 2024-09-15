@@ -1,4 +1,5 @@
 /* Reset and base styling */
+/* Reset and base styling */
 * {
     margin: 0;
     padding: 0;
@@ -106,71 +107,4 @@ nav {
 
 .btn-book:hover {
     background-color: #333;
-}
-
-/* Booking section styling */
-
-
-
-/* Video container */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 10px;
-}
-
-/* Feature grid and cards */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.feature-card {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.feature-card svg {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    fill: #ff6b6b;
-}
-
-.feature-card h3 {
-    margin-bottom: 15px;
-    color: #4a4a4a;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
 }
