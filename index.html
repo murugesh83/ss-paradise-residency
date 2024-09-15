@@ -40,8 +40,8 @@
             <nav>
                 <a href="#" class="logo">SS Paradise Residency</a>
                 <ul class="nav-links">
-                    <li><a href="#rooms" class="btn btn-cta">Our Rooms</a></li>
-                    <li><a href="#features" class="btn btn-cta">Features</a></li>
+                    <li><a href="#hero" class="btn btn-cta">Our Rooms</a></li>
+                    <li><a href="#hero" class="btn btn-cta">Features</a></li>
                     <li><a href="#location" class="btn btn-cta">Location</a></li>
                     <li><a href="#contact" class="btn btn-cta">Contact</a></li>
                     <li><a href="#booking-section" class="btn btn-cta">Book Room</a></li>
@@ -51,13 +51,15 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section id="hero" class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <h1>Experience Our Luxurious Rooms in Tiruvannamalai</h1>
-                    <p>SS Paradise Residency, a newly established residency offering luxurious A/C rooms, is located in Tiruvannamalai, India. This accommodation provides a unique hospitality experience, combining comfort with the spiritual ambiance of the area. Situated in the heart of a spiritual and cultural center, SS Paradise Residency is conveniently located just 0.8 km from the renowned Arunachaleswarar Shiva Temple and a mere 300 feet from the serene Ramana Ashram. Guests can enjoy a comfortable stay while exploring the rich spiritual heritage of Tiruvannamalai.</p>
+                <div class="hero-card">
+                    <div class="hero-content">
+                        <h1>Experience Our Luxurious Rooms in Tiruvannamalai</h1>
+                        <p>SS Paradise Residency, a newly established residency offering luxurious A/C rooms, is located in Tiruvannamalai, India. This accommodation provides a unique hospitality experience, combining comfort with the spiritual ambiance of the area. Situated in the heart of a spiritual and cultural center, SS Paradise Residency is conveniently located just 0.8 km from the renowned Arunachaleswarar Shiva Temple and a mere 300 feet from the serene Ramana Ashram. Guests can enjoy a comfortable stay while exploring the rich spiritual heritage of Tiruvannamalai.</p>
+                    </div>
                 </div>
-                <div class="room-gallery">
+                <div class="room-gallery-slider">
                     <div class="gallery-item">
                         <img src="image/room_luxurious1.webp" alt="Spacious Deluxe Room">
                         <p>Spacious Deluxe Room</p>
@@ -88,7 +90,7 @@
 
         <section id="booking-section" class="booking-section">
             <div class="container">
-                <h1>Book Your Stay</h1>
+                <h1>BOOK YOUR STAY AT SECURE SPACE PARADISE RESIDENCY</h1>
                 <form id="booking-form" class="booking-form" novalidate>
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -120,8 +122,12 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="room-quantity">Number of Rooms</label>
+                        <input type="number" id="room-quantity" name="room-quantity" min="1" max="10" value="1" required>
+                    </div>                                
+                    <div class="form-group">
                         <label for="guests">Number of Guests</label>
-                        <input type="number" id="guests" name="Guests" min="1" max="4" required>
+                        <input type="number" id="guests" name="Guests" min="1" max="4" value="1" required>
                     </div>
                     <div class="form-group">
                         <label for="special-requests">Special Requests</label>
@@ -136,18 +142,26 @@
         <section id="location" class="location">
             <div class="container">
                 <h2>Our Location</h2>
-                <div class="location-content">
-                    <div class="location-text">
-                        <p>SS Paradise Residency is conveniently located in the heart of Tiruvannamalai, providing easy access to spiritual landmarks and local attractions.</p>
-                        <p>Address: No. 1/1, 2nd Street, VOC Nagar, Tiruvannamalai, Tamil Nadu 606603, India</p>
-                        <p>Phone: 9629991270</p>
-                    </div>
-                    <div class="location-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.2785084755463!2d79.06074611346458!3d12.224987949451197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDEzJzI5LjkiTiA3OcKwMDMnNDAuMSJF!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                <div class="location-card">
+                    <div class="location-content">
+                        <div class="location-text">
+                            <p>SS Paradise Residency is ideally situated in the vibrant heart of Tiruvannamalai, offering easy access to the city's spiritual landmarks and local attractions.</p>
+                            <p><strong>Address:</strong> No. 1/1, 2nd Street, VOC Nagar, Tiruvannamalai, Tamil Nadu 606603, India</p>
+                            <p><strong>Phone:</strong> +91 9629991270</p>
+                        </div>
+                        <div class="location-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.2785084755463!2d79.06074611346458!3d12.224987949451197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDEzJzI5LjkiTiA3OcKwMDMnNDAuMSJF!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" 
+                                    width="100%" 
+                                    height="350" 
+                                    style="border:0; border-radius: 8px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>                
     </main>
 
     <footer id="contact">
@@ -181,11 +195,18 @@
     document.getElementById('phone').addEventListener('input', function () {
         formatPhoneNumber(this);
     });
-    
+
     // Initialize intl-tel-input on the phone input field
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
-        preferredCountries: ["us", "gb", "in"], // Customize preferred countries
+   
+        preferredCountries: [
+        "us", "in", "gb", "cn", "jp", "de", "fr", "it", "es", "ca", "au", 
+        "br", "mx", "ru", "kr", "za", "ng", "eg", "sa", "ar", "tr", 
+        "id", "nl", "pk", "bd", "vn", "ir", "ph", "th", "my", 
+        "ke", "co", "pe", "ve", "cl", "ua", "pl", "ro", "cz", 
+        "se", "ch", "no", "dk", "fi", "ie", "pt", "gr", "hu", "at"
+    ], // Customize preferred countries
         separateDialCode: true,
         formatOnDisplay: true, // Format the number with hyphens as per country standard
         nationalMode: false, // Allows the full number including country code
