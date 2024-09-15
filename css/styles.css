@@ -224,7 +224,7 @@ nav {
     z-index: 1; /* Ensure content is above the overlay */
     max-width: 1200px; /* Limit width for better readability */
     padding: 20px; /* Add padding for spacing */
-    background: rgba(0, 0, 0, 0.3); /* Subtle background to enhance text contrast */
+    background: rgba(10, 10, 10, 0.3); /* Subtle background to enhance text contrast */
     border-radius: 10px; /* Rounded corners for a sleek look */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
@@ -233,16 +233,49 @@ nav {
     font-size: 50px; /* Slightly larger font for impact */
     margin-bottom: 20px;
     line-height: 1.2; /* Improved line height for readability */
-    color: #FFC107; /* Gold color for a luxurious feel */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Text shadow for better legibility */
+    color: #4fb75f; /* Gold color for a luxurious feel */
+    /* Text shadow for better legibility */
 }
 
 .hero p {
     font-size: 20px; /* Slightly larger font for better readability */
     margin-bottom: 30px;
     line-height: 1.5; /* Comfortable line spacing */
-    color: #e0e0e0; /* Light gray for better contrast against the background */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+    color: #e0e0e0; /* Light gray for better contrast against the background */ /* Text shadow for readability */
+}
+
+.hero-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFC107; /* Darker shade for emphasis */
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #7c7272;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
 }
 
 
@@ -259,6 +292,43 @@ h2 {
 }
 
 /* Room showcase and gallery */
+
+.room-gallery-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-item {
+    flex: 0 0 80%;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.room-gallery-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for better UI */
+}
+
 .room-showcase {
     background-color: #f9f9f9;
 }
@@ -370,14 +440,50 @@ h2 {
 }
 
 /* Location content */
+.location {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.location h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #4a4a4a;
+}
+
+.location-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
 .location-content {
     display: flex;
-    align-items: center;
-    gap: 50px;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 .location-text {
     flex: 1;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.location-text p {
+    margin-bottom: 10px;
+}
+
+.location-text strong {
+    font-weight: bold;
+    color: #4a4a4a;
 }
 
 .location-map {
@@ -386,9 +492,31 @@ h2 {
 
 .location-map iframe {
     width: 100%;
-    height: 400px;
+    height: 350px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-content {
+        flex-direction: column;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-content {
+        flex-direction: column;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
 }
 
 /* Footer */
