@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
-    <link rel="stylesheet" href="css\styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SS Paradise Residency - Luxurious Stay in Tiruvannamalai</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <!-- intl-tel-input CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <style>
+        #message {
+            display: none;
+            margin: 20px;
+            font-weight: bold;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid aquamarine;
+            text-align: center;
+        }
+
+        /* Initially hide validation styles */
+        .was-validated :invalid {
+            border-color: red;
+        }
+
+        .was-validated :invalid:focus {
+            outline: none;
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        .was-validated :valid {
+            border-color: green;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,75 +40,81 @@
             <nav>
                 <a href="#" class="logo">SS Paradise Residency</a>
                 <ul class="nav-links">
-                    <li><a href="#rooms">Our Rooms</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#location">Location</a></li>
-                    <li><a href="#location">Contact</a></li>
-                    <li><a href="#booking-section" class="btn  btn-cta">Book Room</a></li>
+                    <li><a href="#hero" class="btn btn-cta">Our Rooms</a></li>
+                    <li><a href="#hero" class="btn btn-cta">Features</a></li>
+                    <li><a href="#location" class="btn btn-cta">Location</a></li>
+                    <li><a href="#contact" class="btn btn-cta">Contact</a></li>
+                    <li><a href="#booking-section" class="btn btn-cta">Book Room</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="hero" class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <h1>Experience Our Luxurious Rooms in Tiruvannamalai</h1>
-                    <p>SS Paradise Residency, a newly established residency offering luxurious A/C rooms, is located in Tiruvannamalai, India. This accommodation provides a unique hospitality experience, combining comfort with the spiritual ambiance of the area. Situated in the heart of a spiritual and cultural center, SS Paradise Residency is conveniently located just 0.8 km from the renowned Arunachaleswarar Shiva Temple and a mere 300 feet from the serene Ramana Ashram. Guests can enjoy a comfortable stay while exploring the rich spiritual heritage of Tiruvannamalai.</p>
+                <div class="hero-card">
+                    <div class="hero-content">
+                        <h1>Experience Our Luxurious Rooms in Tiruvannamalai</h1>
+                        <p>SS Paradise Residency, a newly established residency offering luxurious A/C rooms, is located in Tiruvannamalai, India. This accommodation provides a unique hospitality experience, combining comfort with the spiritual ambiance of the area. Situated in the heart of a spiritual and cultural center, SS Paradise Residency is conveniently located just 0.8 km from the renowned Arunachaleswarar Shiva Temple and a mere 300 feet from the serene Ramana Ashram. Guests can enjoy a comfortable stay while exploring the rich spiritual heritage of Tiruvannamalai.</p>
+                    </div>
                 </div>
-                <div class="room-gallery">
+                <div class="room-gallery-slider">
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Spacious Deluxe Room">
+                        <img src="image/room_luxurious1.webp" alt="Spacious Deluxe Room">
                         <p>Spacious Deluxe Room</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Elegant Suite">
+                        <img src="image/room_luxurious2.webp" alt="Elegant Suite">
                         <p>Elegant Suite</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Modern Bathroom">
+                        <img src="image/room_luxurious1.webp" alt="Modern Bathroom">
                         <p>Modern Bathroom</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Cozy Twin Room">
+                        <img src="image/room_luxurious2.webp" alt="Cozy Twin Room">
                         <p>Cozy Twin Room</p>
                     </div>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://youtube.com/shorts/M9sILOJBf2M?feature=share" title="SS Paradise Residency Room Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/M9sILOJBf2M" 
+                            title="SS Paradise Residency Room Tour" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
-        
         </section>
 
         <section id="booking-section" class="booking-section">
             <div class="container">
-                <h1>Book Your Stay</h1>
-                <form class="booking-form">
+                <h1>BOOK YOUR STAY AT SECURE SPACE PARADISE RESIDENCY</h1>
+                <form id="booking-form" class="booking-form" novalidate>
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
+                        <input type="tel" id="phone" name="Phone" placeholder="123-456-7890" required maxlength="12">
+                    </div>                    
                     <div class="form-group">
                         <label for="check-in">Check-in Date</label>
-                        <input type="date" id="check-in" name="check-in" required>
+                        <input type="date" id="check-in" name="Check-in" required>
                     </div>
                     <div class="form-group">
                         <label for="check-out">Check-out Date</label>
-                        <input type="date" id="check-out" name="check-out" required>
+                        <input type="date" id="check-out" name="Check-out" required>
                     </div>
                     <div class="form-group">
                         <label for="room-type">Room Type</label>
-                        <select id="room-type" name="room-type" required>
+                        <select id="room-type" name="Room-type" required>
                             <option value="">Select a room type</option>
                             <option value="deluxe">Deluxe Room</option>
                             <option value="suite">Suite</option>
@@ -88,65 +122,46 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="room-quantity">Number of Rooms</label>
+                        <input type="number" id="room-quantity" name="room-quantity" min="1" max="10" value="1" required>
+                    </div>                                
+                    <div class="form-group">
                         <label for="guests">Number of Guests</label>
-                        <input type="number" id="guests" name="guests" min="1" max="4" required>
+                        <input type="number" id="guests" name="Guests" min="1" max="4" value="1" required>
                     </div>
                     <div class="form-group">
                         <label for="special-requests">Special Requests</label>
-                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                        <textarea id="special-requests" name="Special-requests" rows="4" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-cta">Book Now</button>
+                    <button type="submit" class="btn btn-cta" id="submit-button">Book Now</button>
                 </form>
-            </div>
-        </section>
-        
-
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Why Choose SS Paradise Residency</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 11-16 0 8 8 0 0116 0z"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                        <h3>Prime Location</h3>
-                        <p>Just 0.8 km from Arunachaleswarar Shiva Temple and 300 feet from Ramana Ashram</p>
-                    </div>
-                    <div class="feature-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                        <h3>Unique Experience</h3>
-                        <p>Combine comfort with the spiritual ambiance of Tiruvannamalai</p>
-                    </div>
-                    <div class="feature-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                        <h3>Luxurious Rooms</h3>
-                        <p>Enjoy our comfortable A/C rooms designed for relaxation</p>
-                    </div>
-                </div>
+                <div id="message"></div>
             </div>
         </section>
 
         <section id="location" class="location">
             <div class="container">
                 <h2>Our Location</h2>
-                <div class="location-content">
-                    <div class="location-text">
-                        <p>SS Paradise Residency is conveniently located in the heart of Tiruvannamalai, providing easy access to spiritual landmarks and local attractions.</p>
-                        <p>Address: No. 1/1, 2nd Street, VOC Nagar, Tiruvannamalai, Tamil Nadu 606603, India</p>
-                        <p>Phone: 9629991270</p>
-                    </div>
-                    <div class="location-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.2785084755463!2d79.06074611346458!3d12.224987949451197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDEzJzI5LjkiTiA3OcKwMDMnNDAuMSJF!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                <div class="location-card">
+                    <div class="location-content">
+                        <div class="location-text">
+                            <p>SS Paradise Residency is ideally situated in the vibrant heart of Tiruvannamalai, offering easy access to the city's spiritual landmarks and local attractions.</p>
+                            <p><strong>Address:</strong> No. 1/1, 2nd Street, VOC Nagar, Tiruvannamalai, Tamil Nadu 606603, India</p>
+                            <p><strong>Phone:</strong> +91 9629991270</p>
+                        </div>
+                        <div class="location-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.2785084755463!2d79.06074611346458!3d12.224987949451197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDEzJzI5LjkiTiA3OcKwMDMnNDAuMSJF!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" 
+                                    width="100%" 
+                                    height="350" 
+                                    style="border:0; border-radius: 8px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>                
     </main>
 
     <footer id="contact">
@@ -155,5 +170,684 @@
             <p>&copy; 2023 SS Paradise Residency. All rights reserved.</p>
         </div>
     </footer>
+
+   <!-- Include intl-tel-input CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+<script>
+
+    // Function to format phone number input as XXX-XXX-XXXX
+    function formatPhoneNumber(input) {
+        // Remove all non-digit characters
+        const cleaned = ('' + input.value).replace(/\D/g, '');
+
+        // Split the numbers into their parts
+        const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+
+        // Build the formatted number if the match exists
+        if (match) {
+            input.value = !match[2] ? match[1] : `${match[1]}-${match[2]}${match[3] ? '-' + match[3] : ''}`;
+        }
+    }
+
+    // Attach the event listener to format the input on every keyup event
+    document.getElementById('phone').addEventListener('input', function () {
+        formatPhoneNumber(this);
+    });
+
+    // Initialize intl-tel-input on the phone input field
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+   
+        preferredCountries: [
+        "us", "in", "gb", "cn", "jp", "de", "fr", "it", "es", "ca", "au", 
+        "br", "mx", "ru", "kr", "za", "ng", "eg", "sa", "ar", "tr", 
+        "id", "nl", "pk", "bd", "vn", "ir", "ph", "th", "my", 
+        "ke", "co", "pe", "ve", "cl", "ua", "pl", "ro", "cz", 
+        "se", "ch", "no", "dk", "fi", "ie", "pt", "gr", "hu", "at"
+    ], // Customize preferred countries
+        separateDialCode: true,
+        formatOnDisplay: true, // Format the number with hyphens as per country standard
+        nationalMode: false, // Allows the full number including country code
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // Utility script for formatting/validation etc.
+    });
+
+    document.getElementById("booking-form").addEventListener("submit", function (e) {
+        // Add the 'was-validated' class to trigger validation styles
+        this.classList.add('was-validated');
+
+        // Check if the form is valid
+        if (!this.checkValidity() || !phoneInput.isValidNumber()) {
+            e.preventDefault(); // Prevent the form from submitting if it is invalid
+            this.reportValidity(); // Show validation messages for invalid fields
+            if (!phoneInput.isValidNumber()) {
+                alert("Please enter a valid phone number."); // Show a specific alert for invalid phone numbers
+            }
+            return;
+        }
+
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting...";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        const fullPhoneNumber = phoneInput.getNumber(); // Get the full international number including the country code
+        formData.set("Phone", fullPhoneNumber); // Set the full phone number with country code
+
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+            keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch("https://script.google.com/macros/s/AKfycbwc4MBM5ASLIcMhGsJHl68PrqVbWSWYv_eI8ciqjt9oRodw2IY6oIxXZHWwYHzmrSEQ/exec", { // Replace with your actual Google Apps Script URL
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+        })
+        .then(function (response) {
+            // Check if response status is OK (200)
+            if (!response.ok) {
+                throw new Error("Network response was not OK");
+            }
+            // Try to parse response as JSON; adjust as necessary for your script's response format
+            return response.json(); // Ensure your script returns valid JSON if expecting a JSON response
+        })
+        .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent = "Data submitted successfully!";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("booking-form").reset();
+            // Remove the validation class after successful submission
+            document.getElementById("booking-form").classList.remove('was-validated');
+        })
+        .catch(function (error) {
+            // Handle errors and display error message
+            console.error("Error:", error);
+            document.getElementById("message").textContent = "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "red";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("submit-button").disabled = false;
+        });
+    });
+
+    // Add event listeners to input fields to trigger validation feedback on blur (focus out)
+    document.querySelectorAll('#booking-form input, #booking-form select, #booking-form textarea').forEach(function(input) {
+        input.addEventListener('blur', function() {
+            // Only show validation messages after attempting submission
+            if (document.getElementById("booking-form").classList.contains('was-validated')) {
+                this.reportValidity();
+            }
+        });
+    });
+</script>
+
+
 </body>
-</html>
+</html>/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Logo animation with random color change */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+    text-decoration: none;
+    animation: logoAnimation 2s ease-in-out infinite alternate;
+}
+
+/* Keyframes for sliding in and random color animation */
+@keyframes logoAnimation {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-10px);
+        color: #4a4a4a; /* Initial color */
+    }
+    50% {
+        color: hsl(210, 88%, 48%); /* Random color at midway */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        color: hsl(0, 51%, 31%); /* Another random color */
+    }
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4757;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-book {
+    background-color: #4a4a4a;
+}
+
+.btn-book:hover {
+    background-color: #333;
+}
+
+/* Booking section styling */
+.booking-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #4a4a4a;
+}
+
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #a0c1e2;
+    outline: none;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 14px 28px; /* Comfortable padding for a bold appearance */
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333333; /* Dark gray text for a clean and readable look */
+    background-color: #FFC107; /* Warm, modern amber/gold color */
+    border: none;
+    border-radius: 30px; /* Rounded corners for a contemporary style */
+    transition: all 0.3s ease; /* Smooth transitions for interactive effects */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Light shadow for subtle elevation */
+}
+
+.btn-cta:hover {
+    background-color: #d1c6c3; /* Bright orange for a vibrant hover effect */
+    color: #FFFFFF; /* White text on hover for contrast and readability */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow to emphasize the hover state */
+}
+
+.btn-cta:active {
+    transform: translateY(0); /* No lift effect on active state */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on click */
+    background-color: #50352c; /* Darker, warm red-orange for the active state */
+}
+
+
+
+
+/* Hero section styling */
+.hero {
+    background-image: url('image/room_luxurious1.webp');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 150px 20px; /* Added padding on the sides for better responsiveness */
+    margin-top: 80px;
+    text-align: center;
+    position: relative;
+    display: flex; /* Center content vertically */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden; /* To keep content within bounds */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Diagonal gradient for a dynamic effect */
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+    max-width: 1200px; /* Limit width for better readability */
+    padding: 20px; /* Add padding for spacing */
+    background: rgba(10, 10, 10, 0.3); /* Subtle background to enhance text contrast */
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.hero h1 {
+    font-size: 50px; /* Slightly larger font for impact */
+    margin-bottom: 20px;
+    line-height: 1.2; /* Improved line height for readability */
+    color: #4fb75f; /* Gold color for a luxurious feel */
+    /* Text shadow for better legibility */
+}
+
+.hero p {
+    font-size: 20px; /* Slightly larger font for better readability */
+    margin-bottom: 30px;
+    line-height: 1.5; /* Comfortable line spacing */
+    color: #e0e0e0; /* Light gray for better contrast against the background */ /* Text shadow for readability */
+}
+
+.hero-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFC107; /* Darker shade for emphasis */
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #7c7272;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+
+
+/* Section styling */
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: #4a4a4a;
+}
+
+/* Room showcase and gallery */
+
+.room-gallery-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-item {
+    flex: 0 0 80%;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.room-gallery-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for better UI */
+}
+
+.room-showcase {
+    background-color: #f9f9f9;
+}
+
+.room-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover p {
+    opacity: 1;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Feature grid and cards */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.feature-card svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    fill: #ff6b6b;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: #4a4a4a;
+}
+
+/* Location content */
+.location {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.location h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #4a4a4a;
+}
+
+.location-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.location-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.location-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.location-text p {
+    margin-bottom: 10px;
+}
+
+.location-text strong {
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.location-map {
+    flex: 1;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-content {
+        flex-direction: column;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-content {
+        flex-direction: column;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #4a4a4a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .location-content {
+        flex-direction: column;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+
+    .booking-section {
+        padding: 40px 15px;
+    }
+
+    .booking-form {
+        max-width: 100%;
+    }
+}
