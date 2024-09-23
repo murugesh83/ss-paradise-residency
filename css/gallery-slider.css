@@ -1,0 +1,45 @@
+/* Slider Layout */
+.room-gallery-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center; /* Center the gallery items */
+    align-items: center; /* Align items vertically */
+    box-sizing: border-box; /* Include padding in element's total width */
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    max-width: 250px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 5px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img, .gallery-item iframe {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer; /* Indicate the image is clickable */
+    max-height: 150px; /* Set a max height to maintain uniformity */
+}
+
+.gallery-item p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.room-gallery-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for better UI */
+}
